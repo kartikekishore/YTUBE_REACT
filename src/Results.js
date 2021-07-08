@@ -7,6 +7,7 @@ const Results=({videos})=>{
             {videos.map((video)=>{
                 return (
                     <Video
+                    
                         key={video.id.videoId}
                          title={video.snippet.title}
                          dateAdded={video.snippet.publishedAt}
