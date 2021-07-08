@@ -80,6 +80,28 @@
       border-radius: 9px;
       margin: 1.5rem;
   }
-  
+  .video-container{
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    padding: 25px 0;
+    border-bottom: #c2c9d3 2px solid;
+  }
+  .video-image{
+   margin: 0 20px 0 10px;
+  }
+  .video-info{
+width: 80%;
+height: 100px;
+  }
+.video-info h3{
+    font-weight: 600;
+}
+.video-info h4{
+  font-weight: 500;
+}
+.video-info p{
+ color:grey;
+}
 
 /*# sourceMappingURL=/ytube.bf7111fe.css.map */

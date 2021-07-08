@@ -31379,7 +31379,16 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Video = function Video(props) {
-  return /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h2", null, " ", props.title), /*#__PURE__*/_react.default.createElement("h3", null, " ", props.dateAdded), /*#__PURE__*/_react.default.createElement("h3", null, props.channel)); // return React.createElement("div", {}, [
+  return /*#__PURE__*/_react.default.createElement("div", {
+    className: "video-container"
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "video-image"
+  }, /*#__PURE__*/_react.default.createElement("img", {
+    src: props.thumbnails.url,
+    alt: ""
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "video-info"
+  }, /*#__PURE__*/_react.default.createElement("h3", null, " ", props.title), /*#__PURE__*/_react.default.createElement("h4", null, " ", props.dateAdded), /*#__PURE__*/_react.default.createElement("h4", null, props.channel), /*#__PURE__*/_react.default.createElement("p", null, props.description))); // return React.createElement("div", {}, [
   //   React.createElement("h2", {}, props.title),
   //   React.createElement("h3", {}, props.dateAdded),
   //   React.createElement("h3", {}, props.channel),
@@ -31411,7 +31420,9 @@ var Results = function Results(_ref) {
       key: video.id.videoId,
       title: video.snippet.title,
       dateAdded: video.snippet.publishedAt,
-      channel: video.snippet.channelTitle
+      channel: video.snippet.channelTitle,
+      thumbnails: video.snippet.thumbnails.medium,
+      description: video.snippet.description
     });
   }));
 };
@@ -31462,7 +31473,7 @@ var SearchArea = function SearchArea() {
       setVideos = _useState4[1];
 
   function requestSearch() {
-    _axios.default.get("https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyBS-5_gg6WQwKA_IoTd4wRuN8hVlYwxBkY").then(function (res) {
+    _axios.default.get("https://youtube.googleapis.com/youtube/v3/search?type=video&q=".concat(keyword, "&part=snippet&maxResults=25&key=").concat("AIzaSyBS-5_gg6WQwKA_IoTd4wRuN8hVlYwxBkY")).then(function (res) {
       var items = res.data.items;
       console.log(items);
       setVideos(items);
@@ -31540,7 +31551,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56418" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50323" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

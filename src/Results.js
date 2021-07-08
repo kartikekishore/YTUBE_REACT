@@ -11,6 +11,8 @@ const Results=({videos})=>{
                          title={video.snippet.title}
                          dateAdded={video.snippet.publishedAt}
                          channel={video.snippet.channelTitle}
+                         thumbnails={video.snippet.thumbnails.medium}
+                         description={video.snippet.description}
                          />
                 )
             })}

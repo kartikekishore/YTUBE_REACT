@@ -11,7 +11,7 @@ const SearchArea=()=>{
 
     function requestSearch (){
     
-        axios.get(`https://youtube.googleapis.com/youtube/v3/search?key=AIzaSyBS-5_gg6WQwKA_IoTd4wRuN8hVlYwxBkY`)
+        axios.get(`https://youtube.googleapis.com/youtube/v3/search?type=video&q=${keyword}&part=snippet&maxResults=25&key=${process.env.API_KEY}`)
         .then((res)=>{
             const {items}=res.data;
             console.log(items);
